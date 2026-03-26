@@ -12,3 +12,6 @@ jobs:
 
       - name: Run file
         run: python app.py
+      
+      - name: insecure
+        run: echo "password=12345"
