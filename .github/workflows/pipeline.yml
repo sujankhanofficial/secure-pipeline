@@ -2,16 +2,16 @@ name: CI Pipeline
 
 on: [push]
 
+env:
+  PASSWORD: ${{ secrets.APP_PASSWORD }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Run file
-        run: python app.py
-      
-      - name: insecure
-        run: echo "password=12345"
+      - run: python app.py
+
+      - run: echo $PASSWORD
